@@ -1,0 +1,74 @@
+/* @charset "utf-8"; */
+
+
+/* CSS Document */
+
+th {
+    font-family: Cambria, Hoefler Text, Liberation Serif, Times, Times New Roman, serif;
+}
+
+td {
+    border-radius: 30px;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+    background-image: url(./图片/forest.jpg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 120%;
+    font-size: 20px;
+    color: #F0FFFF;
+}
+
+div table {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+caption {
+    text-indent: 2em;
+    margin: 0 auto;
+}
+
+caption p {
+    text-indent: 3em;
+    line-height: 20%;
+}
+
+.blue {
+    background-color: rgba(100, 136, 152, 0.5);
+}
+
+.red {
+    background-color: rgba(244, 132, 134, 0.4);
+}
+
+.green {
+    background-color: rgba(80, 123, 48, 0.45);
+}
+
+.purple {
+    background-color: rgba(102, 193, 224, 0.3);
+}
+
+table {
+    background-color: rgba(0, 0, 0, 0.45);
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+caption {
+    background-color: rgba(0, 0, 0, 0.45);
+    text-align: left;
+    line-height: 1.5em;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+tbody {
+    font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif
+}
