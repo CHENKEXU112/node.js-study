@@ -7,6 +7,8 @@ const show = function show() {
     console.log(sex);
 }
 
+
+
 module.exports = {
     age: age,
     sex: sex,
