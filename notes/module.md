@@ -7,7 +7,7 @@
 
 const fs = require('fs');
 
-//自定义模块，可以省略后缀名.js
+//自定义模块，可以省略后缀名.js，必须使用./标识
 const time = require('./folder/time.js');
 
 //第三方，需下载
@@ -20,7 +20,7 @@ const moment = require('moment')
 
 - **module对象**：存储了模块有关信息
 
-使用`module.exports`向外共享成员，外界通过`require`导入的对象就是`exports`包含的成员
+**使用`module.exports`向外共享成员**，外界通过`require`导入的对象就是`exports`包含的成员
 
 #### module.exports的使用
 
@@ -42,5 +42,3 @@ console.log(kid);//{age: 12, sex: '男'}
 ```
 
 **`exports`和`module.exports`指向同一对象，但最后导出的是`module.exports`指向的对象（如果改变了的话）**
-
-

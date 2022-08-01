@@ -23,7 +23,7 @@ app.get('url', (req, res) => {
 ### 获取url查询字符串`req.query`,并且自动转换为对象类型
 
 ```js
-app.get('/url?name=zs&age=20', (req, res) => {
+app.get('/url', (req, res) => {
     //客户端查询字符串：?name=zs&age=20
     console.log(req.query)
     //输出{name: zs, age: 20}
@@ -194,7 +194,7 @@ const mw2 = function(req, res, next){
     next();
 }
 
-app.get('url', mw2, (req. res) => {
+app.get('url', mw2, (req, res) => {
     ...
 })
 ```
@@ -211,7 +211,7 @@ app.get('url', [mw1, mw2, mw3], (req, res) => {
 
 ### 中间件的注意事项
 
-- 中间件按照注册顺序执行
+- 中间件**按照注册顺序**执行
 
 - 一定要在注册路由之前注册中间件
 
@@ -232,7 +232,7 @@ app.get('url', [mw1, mw2, mw3], (req, res) => {
    })
    ```
 
-3. `express.urlencoded`解析URL-encoded格式的请求体数据
+3. `express.urlencoded`解析URL-encoded格式的表单请求体数据
    
    ```js
    app.use(express.urlencoded({ extended: false }))
@@ -302,7 +302,7 @@ app.get('/api/jsonp',(req, res) => {
 
 # cors跨域资源共享
 
-是由一系列HTTP响应头组成，这决定浏览器是狗阻止前端js代码跨域获取资源
+是由一系列HTTP响应头组成，这决定浏览器是能够阻止前端js代码跨域获取资源
 
 ### CORS响应头
 
@@ -312,7 +312,7 @@ app.get('/api/jsonp',(req, res) => {
 Access-Control-Allow-Origin: <origin> | *
 ```
 
-origin参数指定了**允许访问该资源的外域URL**
+origin参数指定了**允许访问该资源的外域URL,可以设置为* *即全部
 
 ```js
 req.setHeader = ('Access-Control-Allow-Origin','*')
@@ -320,11 +320,11 @@ req.setHeader = ('Access-Control-Allow-Origin','*')
 
 #### Access-Control-Allow-Headers
 
- 默认情况下，CORS只支持客户端向服务器发送九个请求头，如果需要接受额外的请求头，需要在服务端对其进行声明
+ 默认情况下，CORS只支持客户端向服务器发送九个请求头，如果需要**接受额外的请求头，**需要在服务端对其进行声明
 
 #### Access-Control-Allow-Methods
 
-默认情况下，只能接受get，post，head请求
+默认情况下，只能接受GET， POST， HEAD请求
 
 若要接受put， delete等方式，需要单独配置
 
@@ -345,8 +345,8 @@ req.setHeader('Access-Control-Allow-Methods', 'POST, GET, DELETE')
 
 #### 预检请求
 
-1. 不是简单请求，或者向服务器发送了application/json格式的数据
+1. 不是简单请求，或者向服务器发送了`application/json`格式的数据
 
-2. 浏览器会发送OPTION预检请求，是为了获知服务器是否允许该实际请求，当服务器成功响应请求后，才会发送真正的请求，并携带真实数据
+2. 浏览器会发送OPTION预检请求，是为了**获知服务器是否允许该实际请求**，当服务器**成功响应请求后**，**才会发送真正的**请求，并携带真实数据
 
 3. 也就是会发送两次请求

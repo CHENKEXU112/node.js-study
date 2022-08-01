@@ -76,9 +76,9 @@ session的工作原理，即服务器获取**客户的账号密码等身份信�
    
    调用`req.session.destroy()`函数，可以清空当前用户的 Session
 
-## JWT 认证机制
+## JSON Web Tokens(JWT) 认证机制
 
- Cookie默认不支持跨域访问，这时需要做更多的设置
+ Cookie默认不支持跨域访问, 这时需要做更多的设置, 使用JWT更加简便
 
 - 服务端获得客户信息后，经过**加密生成 Token 字符串返回**给客户端，客户端将其**储存在 localstorage 或者sessionstorage**中，客户**再次请求时**通过**请求头的 authorization 字段**将 Token 发送给服务端，服务器端将其**解密后可获得**用户信息
 
@@ -147,7 +147,7 @@ Authorizatin: Bearer <token>
 
 7. 捕获解析 JWT 失败后的错误
    
-   通过 express 的错误中间件捕获
+   通过 express 的**错误中间件**捕获
    
    ```js
    app.use(( err, req, res, next ) => {
